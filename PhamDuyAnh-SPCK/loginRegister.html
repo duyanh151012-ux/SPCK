@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Register</title>
+  <link rel="stylesheet" href="./css/log.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Đăng Nhập -->
+    <div class="form-box login-box">
+      <h2>Đăng Nhập</h2>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Mật khẩu" required />
+        <button type="submit">Đăng nhập</button>
+        <p class="switch">Chưa có tài khoản? <a href="#" id="show-register">Đăng ký</a></p>
+      </form>
+    </div>
+
+    <!-- Đăng Ký -->
+    <div class="form-box register-box hidden" id="register-box">
+      <h2>Đăng Ký</h2>
+      <form id="signup-form">
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <input type="password" id="signup-password" placeholder="Mật khẩu" required />
+        <input type="password" id="confirm-password" placeholder="Xác nhận mật khẩu" required />
+        <button type="submit">Tạo tài khoản</button>
+        <p class="switch">Đã có tài khoản? <a href="#" id="show-login">Đăng nhập</a></p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Phạm Duy Anh</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const showRegister = document.getElementById('show-register');
+    const showLogin = document.getElementById('show-login');
+    const loginBox = document.querySelector('.login-box');
+    const registerBox = document.getElementById('register-box');
+
+    showRegister.addEventListener('click', () => {
+      loginBox.classList.add('hidden');
+      registerBox.classList.remove('hidden');
+    });
+
+    showLogin.addEventListener('click', () => {
+      registerBox.classList.add('hidden');
+      loginBox.classList.remove('hidden');
+    });
+  </script>
+
+  <!-- Kết nối file JS xử lý login/register -->
+  <script src="./js/auth.js"></script>
+</body>
+</html>
