@@ -6,17 +6,6 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-body {
-  background: url('./img/log.jpg') no-repeat center center/cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  color: #fff;
-}
-
 .container {
   width: 100%;
   max-width: 400px;

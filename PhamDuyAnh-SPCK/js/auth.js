@@ -61,6 +61,11 @@ document
 // ... (các hàm register)
 
 // Đăng nhập
+// auth.js
+
+// ... (các hàm register)
+
+// Đăng nhập
 const login = (event) => {
   event.preventDefault();
   let email = document.getElementById("login-email").value.trim();
@@ -81,9 +86,10 @@ const login = (event) => {
     alert("Đăng nhập thành công!");
     // Lưu email của người dùng đã đăng nhập vào localStorage
     localStorage.setItem("loggedInUserEmail", email);
-    window.location.href = "home.html";
+    // Chuyển hướng đến trang chính
+    window.location.href = "index.html";
   } else {
-    alert("Email hoặc mật khẩu không đúng!");
+    alert("Email hoặc mật khẩu không chính xác!");
   }
 };
 

@@ -6,40 +6,43 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #000;
+    background-color: #000; /* Màu nền đen */
 }
 
-section > h2{
+section > h2 {
     font-size: 24px;
     color: #fff;
     margin: 12px 24px;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 /* HEADER  */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000;
+    background-color: #000; /* Header màu đen */
     color: #fff;
     padding: 10px 20px;
     z-index: 999;
     position: sticky;
     top: 0;
+    border-bottom: 1px solid #333; /* Đường viền nhẹ để phân cách */
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #00aaff;
+    color: #D91656; /* Logo màu đỏ */
     display: flex;
     align-items: center;
     width: 20%;
 }
 
-.logo>img {
+.logo > img {
     width: 30%;
     margin-right: 10px;
 }
@@ -59,344 +62,238 @@ a{
     list-style: none;
 }
 
-.nav-links>li {
+.nav-links > li {
     margin: 0 15px;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #00aaff;
-    transition: all .5s;
-}
-
-.dropdown {
-    position: relative;
+    color: #D91656; /* Hover màu đỏ */
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #333;
-    list-style: none;
-    padding: 10px;
-    min-width: 150px;
-    border-radius: 10px;
-    z-index: 1000;
+    background-color: #1a1a1a; /* Nền dropdown màu đen xám */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: 5px;
 }
 
-.dropdown-content li a {
+.dropdown-content a {
     color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
-    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #333; /* Hover dropdown màu xám tối */
+    color: #D91656; /* Chữ hover dropdown màu đỏ */
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
-    transition: all .3s;
 }
 
-.icons {
+.search-container {
     display: flex;
     align-items: center;
+    width: 30%;
+    border: 1px solid #D91656; /* Viền tìm kiếm màu đỏ */
+    border-radius: 20px;
+    padding: 5px 15px;
+    background-color: #1a1a1a; /* Nền input tìm kiếm màu đen xám */
+    margin-right: 20px;
 }
 
-.icons a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 15px;
+.search-container.active {
+    display: flex;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    color: #fff; /* Chữ input màu trắng */
+}
+
+.search-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #D91656; /* Nút tìm kiếm màu đỏ */
     font-size: 18px;
 }
 
-.icons a:hover {
-    color: #00aaff;
-    transition: all .5s;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
-}
-.user-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.user-info img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 0 15px;
-}
-
-.user-info p {
-    margin: 0;
-    position: relative; /* Đảm bảo vị trí của button được xác định dựa trên p */
-    cursor: pointer; /* Thêm cursor pointer để người dùng biết là có thể hover */
-}
-
-.user-info button {
-    border: none;
-    padding: 5px 25px;
-    border-radius: 5px;
-    display: none; 
-    position: absolute;
-    top: 100%; 
-    left: 40%;
-}
-
-
-.user-info:hover  button { 
-    display: block; /* Khi hover vào p, button hiện ra */
-}
-
-#login-icon{
-    cursor: pointer; margin-left: 15px; font-size: 25px
-}
-
-/* CAROUSEL  */
-.cinema-carousel {
-    position: relative;
+/* CAROUSEL */
+.banner {
     width: 100%;
-    padding: 0;
-}
-
-.carousel {
-    width: 100%;
-    height: 100%;
-}
-
-.bg-carousel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url('../assets/images/bg-carousel.png');
-    background-size: cover;
-    background-position: center;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-indicators,
-.carousel-caption,
-.carousel-control-prev,
-.carousel-control-next {
-    z-index: 11;
-}
-
-.carousel-inner {
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-item {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.carousel-item>img {
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-caption {
-    position: absolute;
-    width: 50%;
-    top: 60%;
-    left: 0;
-    text-align: left;
-    padding: 50px;
-}
-
-.caption-content>a {
-    padding: 15px 40px;
-    background-color: #00aaff;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: #fff;
-    margin-right: 20px;
-    font-weight: bold;
-}
-
-.caption-content>a:hover {
-    background-color: #37afe1;
-}
-
-.caption-content>i {
-    font-size: 1.5rem;
-    padding: 15px;
-    background-color: #202020;
-    border-radius: 50%;
-}
-
-.carousel-caption>h3 {
-    font-weight: bold;
-    font-size: 3rem;
-    margin-bottom: 30px;
-    letter-spacing: 7px;
-}
-
-/* Trending movie  */
-.swiper {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    margin: 30px auto;
-    padding: 10px 0;
-}
-
-.swiper-wrapper {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.3s ease;
-}
-
-.swiper-slide {
-    width: 200px !important;
-    margin-right: 20px !important;
-    flex: 0 0 auto;
-    width: 200px;
-    height: 370px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #444;
-    border-radius: 15px;
+    height: 60vh;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shodow 0.3s ease;
+    position: relative;
 }
 
-.swiper-slide:hover {
-    transform: scale(1.05);
-    box-shadow: 6 6px 12px rgba(0, 0, 0, 0.5);
-}
-
-.swiper-slide img {
+.banner-item {
     width: 100%;
-    height: 90%;
+    height: 100%;
+    display: none;
+}
+
+.banner-item.active {
+    display: block;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 15px 15px 0 0;
 }
 
-.swiper-slide p {
-    margin-top: 10px;
-    color: #fff;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    transition: background 0.3s ease;
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    background-color: rgba(255, 2555, 255, 0.5);
-    padding: 10px;
-    color: #000;
-}
-
-/* Popular movie  */
-#popular-movie{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+/* MAIN */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.movie-card{
-    flex: 1 0 200px;
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    background: #000;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-color: #444;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shodow 0.3s ease;
-}
-.movie-card:hover{
-    transform: scale(1.05);
-    box-shadow: 6 6px 12px rgba(0, 0, 0, 0.5);
+    color: #fff;
 }
 
-.movie-card > img{
-    width: 100%;
-}
-
-.movie-card > p{
+.swiper-slide > p {
     margin-top: 10px;
-    color: #fff;
 }
 
-/* Footer  */
-.footer{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    color: #fff;
-}
-.footer-logo > h5{
-    font-size: 1.2rem;
-}
-.footer-logo > img{
-    width: 100px;
+.swiper-slide > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
-.copyright{
+.swiper-button-next,
+.swiper-button-prev {
+    color: #D91656; /* Nút điều hướng Swiper màu đỏ */
+    background: rgba(0, 0, 0, 0.7); /* Nền nút Swiper đen mờ */
+    padding: 10px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.poluplar-movie { /* Sửa lỗi chính tả thành popular-movie nếu cần */
+    margin-top: 20px;
+}
+
+#popular-movie,
+#favorite-movies-container,
+#search-results-container,
+#genre-movie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.movie-card {
     text-align: center;
-    letter-spacing: 1px;
-}
-
-.contact > a{
     color: #fff;
-    font-size: 1.3rem;
-    margin: 0 5px;
-    transition: all .5s;
-}
-.contact > a:hover{
-    color: #00aaff;
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+    background-color: #1a1a1a; /* Nền card phim màu đen xám */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Responesive Style  */
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(217, 22, 86, 0.6); /* Đổ bóng màu đỏ khi hover */
+}
+
+.movie-card > img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bo tròn góc ảnh phim */
+}
+
+.movie-card > p {
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.movie-card i {
+    color: #D91656; /* Icon trong card phim màu đỏ */
+    margin-top: 5px;
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111; /* Footer màu đen xám */
+    color: #fff;
+    padding: 20px 40px;
+    margin-top: 20px;
+    border-top: 1px solid #333; /* Đường viền nhẹ để phân cách */
+}
+
+.footer .contact a {
+    color: #fff;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.footer .contact a:hover {
+    color: #D91656; /* Icon contact màu đỏ khi hover */
+}
+
+/* RESPONSIVE */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    color: #D91656; /* Icon menu toggle màu đỏ */
+    font-size: 24px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
 @media screen and (max-width: 768px) {
-
-    .logo {
-        width: 50%;
-    }
-
-    .nav {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
     .nav-container {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #000;
+        background-color: #000; /* Nền menu responsive màu đen */
         width: 100%;
         padding: 10px 20px;
     }
@@ -431,15 +328,17 @@ a{
         display: flex;
     }
 
-    .footer{
+    .footer {
         flex-direction: column;
     }
 }
+
 /* Avatar và thông tin người dùng */
 .user-info {
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: #fff;
 }
 
 .user-info img {
@@ -447,40 +346,47 @@ a{
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    border: 2px solid #D91656; /* Viền avatar màu đỏ */
 }
 
 .user-info p {
     color: #fff;
-    margin: 0;
+    margin: 5px;
 }
 
-/* Nút đăng xuất */
-.user-info button {
-    display: none;
-    background-color: #ff5555;
-    color: #fff;
-    border: none;
-    padding: 5px 15px;
-    border-radius: 5px;
-    cursor: pointer;
+/* Nút đăng nhập/đăng xuất */
+.avatar-action-container a {
+    color: #D91656; /* Nút đăng nhập/đăng xuất màu đỏ */
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: bold;
+    margin: 5px;
+    display: inline;
+}
+.logo{
+    height: 150px;
+    width: 150px;
+    border-radius: 15px;
 }
 
-.user-info:hover button {
-    display: block;
+.avatar-action-container a:hover {
+    color: #ff3366; /* Màu đỏ sáng hơn khi hover */
+    margin: 5px;
+    display: inline;
 }
 
-#favorite-icon {
+/* Icon tìm kiếm */
+#search-icon {
+    color: #D91656; /* Icon kính lúp màu đỏ */
     font-size: 20px;
-    cursor: pointer;
     margin-left: 15px;
+    cursor: pointer;
 }
 
-#favorite-icon:hover {
-    color: #00aaff;
-}
-.ff{
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
-    margin-right: 5px;
+/* Icon đóng tìm kiếm */
+#close-search {
+    color: #D91656; /* Icon đóng tìm kiếm màu đỏ */
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
 }
