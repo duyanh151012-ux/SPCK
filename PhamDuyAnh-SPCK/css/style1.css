@@ -364,7 +364,6 @@ a {
     display: inline;
 }
 .logo{
-    height: 150px;
     width: 150px;
     border-radius: 15px;
 }
@@ -389,4 +388,170 @@ a {
     font-size: 20px;
     margin-left: 10px;
     cursor: pointer;
+}
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Thêm dòng này để tạo khoảng cách */
+    width: 30%;
+    justify-content: flex-end; /* Thêm dòng này để căn phải */
+}
+/* Nút xóa phim yêu thích */
+.movie-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.movie-card:hover .delete-btn {
+    opacity: 1;
+}
+.movie-card p {
+    color: #fff;
+    text-align: center; /* Tùy chọn: Để căn giữa tên phim */
+    margin-top: 5px; /* Tùy chọn: Để tạo khoảng cách với ảnh */
+}
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Tùy chọn: Làm tròn góc ảnh cho đẹp */
+    display: block;
+}
+/* Trong file style.css của bạn */
+
+/* Đảm bảo hình ảnh không bị kéo giãn */
+.movie-card img {
+    width: 100%;
+    height: auto; /* Giữ tỷ lệ khung hình */
+    display: block;
+    object-fit: cover; /* Đảm bảo hình ảnh bao phủ vùng mà không bị méo */
+}
+
+/* Các thuộc tính cho movie-card trong Swiper */
+.trending-swiper .movie-card {
+    width: 200px; /* Hoặc một kích thước cố định bạn muốn */
+    height: 300px; /* Đặt chiều cao cố định hoặc tính toán theo tỷ lệ */
+    flex-shrink: 0; /* Quan trọng để Swiper không làm co lại */
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.trending-swiper .movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.trending-swiper .movie-card p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box; /* Bao gồm padding và border vào width/height */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm nếu tên phim quá dài */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Điều chỉnh kích thước slide cho Swiper */
+.trending-swiper .swiper-slide {
+    width: 200px; /* Phải khớp với width của .movie-card bên trong */
+    height: 350px; /* Đủ chỗ cho poster và tên phim */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Các nút điều hướng của Swiper */
+.trending-swiper .swiper-button-next,
+.trending-swiper .swiper-button-prev {
+    color: #fff; /* Màu của mũi tên */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    top: 50%;
+}
+.trending-swiper .swiper-button-next:hover,
+.trending-swiper .swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* CSS cho phần popular movie (tham khảo để đảm bảo nhất quán) */
+#popular-movie {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ví dụ */
+    gap: 20px;
+}
+#popular-movie .movie-card {
+    width: auto; /* Hoặc 100% nếu là item của grid */
+    height: 350px; /* Đảm bảo khớp với chiều cao của Swiper slide để nhất quán */
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+/* Trong file style1.css của bạn */
+
+/* Định nghĩa container cho lưới phim */
+.movie-grid {
+    display: grid;
+    /* Dùng repeat(auto-fit, minmax(200px, 1fr)) để tạo lưới responsive */
+    /* Mỗi cột sẽ có chiều rộng tối thiểu là 200px và tự động điều chỉnh */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Khoảng cách giữa các phim */
+    padding: 20px;
+}
+
+/* Các thuộc tính chung cho thẻ phim */
+.movie-card {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    border-radius: 8px 8px 0 0;
+}
+
+.movie-card p {
+    color: #fff;
+    font-size: 1em;
+    padding: 10px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

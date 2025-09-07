@@ -100,3 +100,20 @@ footer {
   position: absolute;
   bottom: 0;
 }
+.guest-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.guest-btn:hover {
+    background-color: #555;
+}

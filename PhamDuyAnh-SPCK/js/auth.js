@@ -47,25 +47,13 @@ const register = (event) => {
   } else {
     users[email] = user;
     localStorage.setItem("users", JSON.stringify(users));
-    alert("Đăng ký thành công");
+    alert("Đăng ký thành công!");
+    // Chuyển về form đăng nhập
+    document.getElementById("register-box").classList.add("hidden");
+    document.querySelector(".login-box").classList.remove("hidden");
   }
 };
 
-document
-  .getElementById("signup-form")
-  .addEventListener("submit", register);
-
-// Đăng nhập
-// auth.js
-
-// ... (các hàm register)
-
-// Đăng nhập
-// auth.js
-
-// ... (các hàm register)
-
-// Đăng nhập
 const login = (event) => {
   event.preventDefault();
   let email = document.getElementById("login-email").value.trim();
@@ -84,15 +72,26 @@ const login = (event) => {
 
   if (storedUser && storedUser.pass === password) {
     alert("Đăng nhập thành công!");
-    // Lưu email của người dùng đã đăng nhập vào localStorage
     localStorage.setItem("loggedInUserEmail", email);
-    // Chuyển hướng đến trang chính
+    // Xóa cờ tài khoản khách nếu có
+    localStorage.removeItem("isGuestUser");
     window.location.href = "index.html";
   } else {
-    alert("Email hoặc mật khẩu không chính xác!");
+    alert("Email hoặc mật khẩu không đúng.");
   }
 };
 
+// Gắn sự kiện cho form đăng ký
+document.getElementById("signup-form").addEventListener("submit", register);
+
+// Gắn sự kiện cho form đăng nhập
 document.getElementById("login-form").addEventListener("submit", login);
 
-// ... (các hàm và sự kiện khác)
+// Xử lý nút "Sử dụng với tài khoản khách"
+document.getElementById('guest-login-btn').addEventListener('click', () => {
+    // Đặt cờ để nhận diện tài khoản khách
+    localStorage.setItem('isGuestUser', 'true');
+    // Xóa mọi trạng thái đăng nhập cũ
+    localStorage.removeItem('loggedInUserEmail');
+    window.location.href = 'index.html';
+});

@@ -50,6 +50,7 @@
               <a href="loginRegister.html">Đăng nhập</a>
             </div>
           </div>
+          <a href="favorite.html" class="favorite-link"><i class="fa-solid fa-heart"></i></a>
           <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
           <i class="fa-solid fa-bars menu-toggle"></i>
         </div>
@@ -57,7 +58,7 @@
     </nav>
   </header>
 
-    <section class="cinema-carousel container mt-4">
+  <section class="cinema-carousel container mt-4">
     <div id="carouselExampleCaptions" class="carousel slide">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -113,22 +114,14 @@
   </section>
 
   <main>
-    <section class="trending-movie container">
-      <h2>Trending Movie</h2>
-      <div class="swiper">
-        <div class="swiper-wrapper" id="trend-movie">
-          <a href="#" class="swiper-slide">
-            <img src="./images/film1.jpg" alt="film1">
-            <p>Transformers One</p>
-          </a>
+<section id="trending-movies-section" class="movie-section">
+    <h2>Phim thịnh hành</h2>
+    <div id="trending-movies-container" class="movie-grid">
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    </section>
+</section>
 
     <section class="poluplar-movie container">
-      <h2>Popular Movie</h2>
+      <h2>Phim nổi bật</h2>
       <div id="popular-movie">
         <a href="#" class="movie-card">
           <img src="./images/film1.jpg" alt="">
@@ -160,7 +153,7 @@
 
   <footer class="footer">
     <div class="copyright">
-      Copyright &copy; TechNewLife
+      Copyright &copy; PhạmDuyAnh
     </div>
     <div class="contact">
       Contact:
